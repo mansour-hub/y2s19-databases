@@ -5,7 +5,7 @@ from sqlalchemy import create_engine
 
 Base = declarative_base()
 
-class Knowledge(Base):
+class animals(Base):
 	# Create a table with 4 columns
 	# The first column will be the primary key
 	# The second column should be a string representing
@@ -14,4 +14,19 @@ class Knowledge(Base):
 	# topic of the article. The last column will be
 	# an integer, representing your rating of the article.
 
-	pass
+   __tablename__ = 'animals'
+   animal_id = Column(Integer, primary_key=True)
+   name = Column(String)
+   gender = Column(Integer)
+   finished_lab = Column(Boolean)
+
+   def __repr__(self):
+   	return ("animal name: {}\n"
+   			"animal gender: {}\n"
+   			"lab status: {}").format (
+   				self.name,
+   				self.gender,
+   				self.finished_lab)
+
+x = animals(name="dog", gender="m")
+print (x)
